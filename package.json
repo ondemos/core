@@ -1,26 +1,26 @@
 {
   "name": "@ondemos/core",
   "description": "A cryptographic commitment scheme with implied order of ownership wasm module for nodejs and the browser.",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "repository": {
     "type": "git",
-    "url": "https://git.ondemos.org/core-js.git"
+    "url": "https://github.com/ondemos/core-js.git"
   },
   "author": {
     "name": "Ondemos Foundation",
     "email": "security@ondemos.org",
-    "url": "https://www.ondemos.org"
+    "url": "https://ondemos.org"
   },
   "contributors": [
     {
       "name": "Dimitris Karoukis",
       "email": "dim@ondemos.org",
-      "url": "https://www.ondemos.org"
+      "url": "https://ondemos.org"
     }
   ],
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://git.ondemos.org/core-js/issues"
+    "url": "https://github.com/ondemos/core-js/issues"
   },
   "keywords": [
     "cryptographic commitment scheme",
@@ -33,7 +33,7 @@
     "emscripten",
     "typescript"
   ],
-  "homepage": "https://git.ondemos.org/core-js#readme",
+  "homepage": "https://github.com/ondemos/core-js#readme",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "types": "lib/index.d.ts",
@@ -100,7 +100,7 @@
     "typescript-eslint": "^8.0.0-alpha.24"
   },
   "engines": {
-    "node": ">=16",
+    "node": ">=20",
     "npm": ">=8"
   },
   "browserslist": {
