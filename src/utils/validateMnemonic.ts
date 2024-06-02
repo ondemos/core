@@ -64,7 +64,7 @@ const mnemonicToEntropy = async (mnemonic: string): Promise<boolean> => {
 const validateMnemonic = async (mnemonic: string): Promise<boolean> => {
   try {
     return await mnemonicToEntropy(mnemonic);
-  } catch (e) {
+  } catch {
     return false;
   }
 };
