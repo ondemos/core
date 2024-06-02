@@ -1,11 +1,11 @@
 import ondemos from "../src";
 
-const uint8ToHex = (array: Uint8Array) => {
-  return (
-    "0x" +
-    array.reduce((str, byte) => str + byte.toString(16).padStart(2, "0"), "")
-  );
-};
+// const uint8ToHex = (array: Uint8Array) => {
+//   return (
+//     "0x" +
+//     array.reduce((str, byte) => str + byte.toString(16).padStart(2, "0"), "")
+//   );
+// };
 
 describe("Commitment scheme test suite.", () => {
   test("Generating commitment details works.", async () => {
@@ -13,7 +13,7 @@ describe("Commitment scheme test suite.", () => {
       ondemos.constants.crypto_hash_sha512_BYTES,
     );
 
-    console.log(uint8ToHex(initialCommit));
+    // console.log(uint8ToHex(initialCommit));
 
     const newIdentities = await ondemos.generateIdentities(100);
 
@@ -24,7 +24,7 @@ describe("Commitment scheme test suite.", () => {
       initialCommit,
     );
 
-    console.log(uint8ToHex(commit));
+    // console.log(uint8ToHex(commit));
 
     const chosenIdentity1 = 68;
     const chosenIdentity2 = 52;
@@ -49,8 +49,8 @@ describe("Commitment scheme test suite.", () => {
 
     expect(proof1.length).toBeLessThan(proof2.length);
 
-    console.log(proof1);
-    console.log(proof2);
+    // console.log(proof1);
+    // console.log(proof2);
 
     const identityDistanceFromCommit1 = await ondemos.verifyProof(
       commit,
