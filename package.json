@@ -4,7 +4,7 @@
   "version": "0.2.7",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ondemos/core-js.git"
+    "url": "https://github.com/ondemos/core.git"
   },
   "author": {
     "name": "Ondemos Foundation",
@@ -20,7 +20,7 @@
   ],
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/ondemos/core-js/issues"
+    "url": "https://github.com/ondemos/core/issues"
   },
   "keywords": [
     "cryptographic commitment scheme",
@@ -33,7 +33,7 @@
     "emscripten",
     "typescript"
   ],
-  "homepage": "https://github.com/ondemos/core-js#readme",
+  "homepage": "https://github.com/ondemos/core#readme",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "types": "lib/index.d.ts",

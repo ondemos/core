@@ -1,7 +1,7 @@
-# @ondemos/core-js
+# @ondemos/core
 
 [![codecov][codecov-image]][codecov-url]
-[![Known Vulnerabilities](https://snyk.io/test/github/ondemos/core-js/badge.svg?targetFile=package.json)](https://snyk.io/test/github/ondemos/core-js?targetFile=package.json)
+[![Known Vulnerabilities](https://snyk.io/test/github/ondemos/core/badge.svg?targetFile=package.json)](https://snyk.io/test/github/ondemos/core?targetFile=package.json)
 <br>
 ![NPM Version](https://img.shields.io/npm/v/@ondemos/core)
 ![NPM License](https://img.shields.io/npm/l/@ondemos/core)
@@ -10,8 +10,8 @@
 ![NPM Downloads](https://img.shields.io/npm/dw/@ondemos/core)
 [![](https://data.jsdelivr.com/v1/package/npm/@ondemos/core/badge)](https://www.jsdelivr.com/package/npm/@ondemos/core)
 
-[codecov-image]: https://codecov.io/gh/ondemos/core-js/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/ondemos/core-js
+[codecov-image]: https://codecov.io/gh/ondemos/core/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/ondemos/core
 [code-style-prettier-image]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square
 [code-style-prettier-url]: https://github.com/prettier/prettier
 
@@ -218,8 +218,8 @@ cd emsdk
 cd ..
 source ./build.sh
 cd ..
-git clone https://github.com/ondemos/core-js
-cd core-js
+git clone https://github.com/ondemos/core
+cd core
 npm i 
 npm run copy:wasm
 npm run build
@@ -229,8 +229,8 @@ and [Rollup](https://github.com/rollup/rollup) will generate the UMD, ESM and CJ
 
 ## Releases
 
-Releases are available on [Github](https://github.com/ondemos/core-js/releases)
-and [npmjs.com](https://www.npmjs.com/package/@ondemos/core-js)
+Releases are available on [Github](https://github.com/ondemos/core/releases)
+and [npmjs.com](https://www.npmjs.com/package/@ondemos/core)
 
 ## License
 
