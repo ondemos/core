@@ -23,9 +23,9 @@ jobs:
         run: npm test
 
       - name: Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v4
         with:
-          # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           # files: ./coverage1.xml,./coverage2.xml # optional
           directory: ./coverage
           # flags: unittests # optional

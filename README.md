@@ -23,7 +23,7 @@ The API is not completely stable and the code has not undergone external securit
 
 ## Introduction
 
-This library uses the WASM output from the [core C library](https://github.com/ondemos/core) and wraps it in Typescript.
+This library uses the WASM output from the [core C library](https://github.com/ondemos/libdemos) and wraps it in Typescript.
 
 ## Files
 
