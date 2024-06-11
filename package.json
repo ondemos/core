@@ -51,11 +51,13 @@
     "lib/**/*"
   ],
   "scripts": {
-    "start": "cross-env NODE_ENV=development rollup --config rollup.config.ts --configPlugin typescript",
-    "copy:wasm": "rm -rf wasm && cp -r ../core/build/wasm wasm",
+    "wasm": "cross-env NODE_ENV=production node scripts/emscripten.js",
+    "wasm:debug": "cross-env NODE_ENV=development node scripts/emscripten.js",
     "build:debug": "cross-env NODE_ENV=development rollup --config rollup.config.ts --configPlugin typescript",
+    "prebuild": "npm run wasm",
     "build": "cross-env NODE_ENV=production rollup --config rollup.config.ts --configPlugin typescript",
     "postbuild": "node scripts/postBuild.cjs",
+    "pretest": "npm run wasm",
     "test": "jest --config jest.config.json",
     "format": "prettier --write src __tests__ *.ts eslint.config.mjs",
     "lint": "npx eslint .",
