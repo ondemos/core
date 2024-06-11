@@ -16,6 +16,11 @@ jobs:
         with:
           submodules: 'true'
 
+      - name: Git Submodule Update
+        run: |
+          cd libdemos
+          git submodule update --init --recursive
+
       - name: Setup
         run: npm install --force
 
