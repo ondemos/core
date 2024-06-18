@@ -17,12 +17,14 @@ describe("Commitment scheme test suite.", () => {
 
     const newIdentities = await ondemos.generateIdentities(100);
 
+    const commitDetails = await ondemos.generateCommitDetails(
+      newIdentities.nonces,
+      newIdentities.publicKeys,
+    );
+
     // console.log(newIdentities);
 
-    const commit = await ondemos.commit(
-      newIdentities.commitDetails,
-      initialCommit,
-    );
+    const commit = await ondemos.commit(commitDetails, initialCommit);
 
     // console.log(uint8ToHex(commit));
 

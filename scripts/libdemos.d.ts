@@ -134,6 +134,11 @@ export interface LibDemos extends EmscriptenModule {
     nonces: number,
     public_keys: number,
     secret_keys: number,
+  ): number;
+  _generate_commit_details(
+    IDENTITIES_LEN: number,
+    nonces: number,
+    public_keys: number,
     commit_details: number,
   ): number;
   _commit(

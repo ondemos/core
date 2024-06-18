@@ -5,7 +5,6 @@ import libdemos from "@libdemos";
 import {
   crypto_sign_ed25519_PUBLICKEYBYTES,
   crypto_sign_ed25519_SECRETKEYBYTES,
-  crypto_auth_hmacsha512_BYTES,
   crypto_auth_hmacsha512_KEYBYTES,
 } from "../utils/interfaces";
 
@@ -25,7 +24,6 @@ const generateIdentities = async (
   nonces: Uint8Array[];
   publicKeys: Uint8Array[];
   secretKeys: Uint8Array[];
-  commitDetails: Uint8Array;
 }> => {
   const wasmMemory =
     module?.wasmMemory ?? demosMemory.generateIdentitiesMemory(identitiesLen);
@@ -60,19 +58,11 @@ const generateIdentities = async (
     identitiesLen * crypto_sign_ed25519_SECRETKEYBYTES,
   );
 
-  const ptr4 = demosModule._malloc(crypto_auth_hmacsha512_BYTES);
-  const commitDetailsArray = new Uint8Array(
-    wasmMemory.buffer,
-    ptr4,
-    crypto_auth_hmacsha512_BYTES,
-  );
-
   const result = demosModule._generate_identities(
     identitiesLen,
     noncesArray.byteOffset,
     publicKeysArray.byteOffset,
     secretKeysArray.byteOffset,
-    commitDetailsArray.byteOffset,
   );
 
   switch (result) {
@@ -80,8 +70,6 @@ const generateIdentities = async (
       const nonces: Uint8Array[] = [];
       const publicKeys: Uint8Array[] = [];
       const secretKeys: Uint8Array[] = [];
-
-      const commitDetails = Uint8Array.from([...commitDetailsArray]);
 
       for (let i = 0; i < identitiesLen; i++) {
         nonces.push(
@@ -109,13 +97,11 @@ const generateIdentities = async (
       demosModule._free(ptr1);
       demosModule._free(ptr2);
       demosModule._free(ptr3);
-      demosModule._free(ptr4);
 
       return {
         nonces,
         publicKeys,
         secretKeys,
-        commitDetails,
       };
     }
 
@@ -123,7 +109,6 @@ const generateIdentities = async (
       demosModule._free(ptr1);
       demosModule._free(ptr2);
       demosModule._free(ptr3);
-      demosModule._free(ptr4);
 
       throw new Error("Identities length should be at least 1.");
     }
@@ -132,39 +117,33 @@ const generateIdentities = async (
       demosModule._free(ptr1);
       demosModule._free(ptr2);
       demosModule._free(ptr3);
-      demosModule._free(ptr4);
 
-      throw new Error("Could not hmac of first public key with first nonce.");
+      throw new Error("Could not generate the first random nonce.");
     }
 
     case -3: {
       demosModule._free(ptr1);
       demosModule._free(ptr2);
       demosModule._free(ptr3);
-      demosModule._free(ptr4);
 
-      throw new Error("Could not allocate hash memory.");
+      throw new Error("Could not generate the first ed25519 keypair.");
     }
 
     case -4: {
       demosModule._free(ptr1);
       demosModule._free(ptr2);
       demosModule._free(ptr3);
-      demosModule._free(ptr4);
 
-      throw new Error(
-        "Could not calculate hmac hash of previous external commit detail with current nonce.",
-      );
+      throw new Error("Could not generate a random nonce after the first.");
     }
 
     case -5: {
       demosModule._free(ptr1);
       demosModule._free(ptr2);
       demosModule._free(ptr3);
-      demosModule._free(ptr4);
 
       throw new Error(
-        "Could not calculate hmac hash of public key with derived nonce.",
+        "Could not generate an ed25519 keypair after the first one.",
       );
     }
 
@@ -172,7 +151,6 @@ const generateIdentities = async (
       demosModule._free(ptr1);
       demosModule._free(ptr2);
       demosModule._free(ptr3);
-      demosModule._free(ptr4);
 
       throw new Error("An unexpected error occured.");
     }

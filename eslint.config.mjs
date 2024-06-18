@@ -13,6 +13,7 @@ export default [
       "coverage/*",
       "eslint.config.mjs",
       "rollup.config.ts",
+      "emsdk",
     ],
   },
   pluginJs.configs.recommended,

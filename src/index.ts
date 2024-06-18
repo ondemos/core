@@ -9,6 +9,7 @@ import type { SignKeyPair, Proof } from "./utils/interfaces";
 
 const ondemos = {
   generateIdentities: commitment.generateIdentities,
+  generateCommitDetails: commitment.generateCommitDetails,
   generateProof: commitment.generateProof,
   commit: commitment.commit,
   verifyProof: commitment.verifyProof,

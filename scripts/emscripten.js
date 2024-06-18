@@ -157,6 +157,7 @@ _decrypt_chachapoly_symmetric,\
 _commit,\
 _generate_proof,\
 _generate_identities,\
+_generate_commit_details,\
 _verify_proof,\
 _argon2,\
 _sha512,\

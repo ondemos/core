@@ -29,6 +29,21 @@ const generateIdentitiesMemory = (
   });
 };
 
+const generateCommitDetailsMemory = (
+  identitiesLen: number,
+): WebAssembly.Memory => {
+  const memoryLen =
+    identitiesLen * (nonceLen + crypto_sign_ed25519_PUBLICKEYBYTES) +
+    commitDetailsLen +
+    2 * crypto_hash_sha512_BYTES;
+  const memoryPages = memoryLenToPages(memoryLen);
+
+  return new WebAssembly.Memory({
+    initial: memoryPages,
+    maximum: memoryPages,
+  });
+};
+
 const generateProofMemory = (
   identitiesLen: number,
   identityChosenIndex: number,
@@ -72,6 +87,7 @@ const commitMemory = (): WebAssembly.Memory => {
 
 export default {
   generateIdentitiesMemory,
+  generateCommitDetailsMemory,
   generateProofMemory,
   verifyProofMemory,
   commitMemory,
